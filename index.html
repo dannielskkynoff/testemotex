@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel do Lojista</title>
-    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header class="header">
@@ -12,10 +12,10 @@
     </header>
 
     <nav class="nav-buttons">
-        <button onclick="abrirPopup()">Chamar Entregador</button>
-        <button onclick="abrirConfiguracoes()">Configurações</button>
-        <button onclick="abrirPerfil()">Ver Perfil</button>
-        <button onclick="abrirRelatorios()">Ver Relatórios</button>
+        <button class="btn-primary" onclick="abrirPopup()">Chamar Entregador</button>
+        <button class="btn-secondary" onclick="abrirConfiguracoes()">Configurações</button>
+        <button class="btn-secondary" onclick="abrirPerfil()">Ver Perfil</button>
+        <button class="btn-secondary" onclick="abrirRelatorios()">Ver Relatórios</button>
     </nav>
 
     <main class="order-sections">
@@ -90,6 +90,6 @@
         </div>
     </div>
 
-    <script src="./js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
