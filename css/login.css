@@ -1,26 +1,24 @@
-/* login.css */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f3f4f6;
-    margin: 0;
+    background-color: #f4f4f4;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    margin: 0;
 }
 
 .login-container {
-    background-color: white;
-    padding: 30px;
+    background-color: #fff;
+    padding: 40px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
     text-align: center;
 }
 
-h2 {
-    margin-bottom: 20px;
+h1 {
     color: #6c5ce7;
 }
 
@@ -28,38 +26,27 @@ input {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    border-radius: 5px;
     border: 1px solid #ddd;
+    border-radius: 5px;
     font-size: 16px;
-}
-
-input:focus {
-    border-color: #6c5ce7;
-    outline: none;
 }
 
 button {
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     background-color: #6c5ce7;
     color: white;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #5e54d8;
 }
 
-p {
+.error-message {
+    color: red;
     margin-top: 10px;
-    font-size: 14px;
-}
-
-a {
-    color: #6c5ce7;
-    text-decoration: none;
 }
