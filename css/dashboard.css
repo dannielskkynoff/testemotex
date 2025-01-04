@@ -8,12 +8,20 @@ body {
 }
 
 .header {
-    background-color: #6c5ce7;
+    background: linear-gradient(270deg, #6c5ce7, #5e54d8, #7158e2);
+    background-size: 400% 400%;
     color: white;
     text-align: center;
     padding: 20px 0;
     font-size: 24px;
     font-weight: bold;
+    animation: gradientAnimation 6s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* Navegação */
@@ -80,13 +88,14 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
     display: none;
     justify-content: center;
     align-items: center;
 }
 
 .popup-content {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 8px;
     width: 90%;
@@ -160,4 +169,13 @@ input {
 
 .confirm-btn:hover {
     background-color: #5e54d8;
+}
+
+/* Ajuste no campo Troco */
+.troco {
+    display: none;
+}
+
+.troco input {
+    margin-top: 5px;
 }
