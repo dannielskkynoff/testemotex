@@ -1,74 +1,36 @@
-/* Definições gerais */
 body {
     font-family: Arial, sans-serif;
     background-color: #f3f4f6;
     margin: 0;
-    transition: background-color 0.3s ease;
-}
-
-/* Tema claro */
-body.light-theme {
-    background-color: #f3f4f6;
-}
-
-body.dark-theme {
-    background-color: #333;
-    color: white;
 }
 
 .header {
     background-color: #6c5ce7;
     color: white;
-    padding: 20px;
+    padding: 15px;
     text-align: center;
-    animation: color-change 5s infinite alternate;
 }
 
-.header h1 {
-    margin: 0;
-}
-
-@keyframes color-change {
-    0% { background-color: #6c5ce7; }
-    50% { background-color: #9b59b6; }
-    100% { background-color: #8e44ad; }
-}
-
-.buttons {
-    margin: 20px;
+.container {
     display: flex;
     justify-content: space-around;
+    margin-top: 20px;
 }
 
-.btn {
+.action-button {
     background-color: #6c5ce7;
     color: white;
+    padding: 10px 20px;
     border: none;
-    padding: 10px;
     border-radius: 5px;
     cursor: pointer;
-    width: 150px;
+    transition: background-color 0.3s;
 }
 
-.btn:hover {
+.action-button:hover {
     background-color: #5e54d8;
 }
 
-.order-container {
-    margin: 20px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.order {
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 30%;
-}
-
-/* Estilos do Popup */
 .popup {
     display: none;
     position: fixed;
@@ -77,105 +39,55 @@ body.dark-theme {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
+    z-index: 1000;
 }
 
 .popup-content {
-    background-color: #fff;
+    background-color: white;
+    margin: 50px auto;
     padding: 20px;
-    border-radius: 8px;
-    width: 500px;
-    max-height: 80vh;
-    overflow-y: auto;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
-.popup-content h2 {
-    margin-top: 0;
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
 }
 
-.popup-content form label {
-    display: block;
-    margin: 10px 0 5px;
-}
-
-.popup-content form input, .popup-content form select, .popup-content form textarea {
+form input, form textarea {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
+    padding: 10px;
+    margin: 10px 0;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
 
-.popup-content form button {
+form button {
     background-color: #6c5ce7;
     color: white;
-    border: none;
     padding: 10px;
+    width: 100%;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%;
+    transition: background-color 0.3s;
 }
 
-.popup-content form button:hover {
+form button:hover {
     background-color: #5e54d8;
 }
 
-/* Estilo do Interruptor de Tema */
-.switch-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 20px 0;
+textarea {
+    resize: none;
 }
 
-.switch-label {
-    font-size: 16px;
-    margin-right: 10px;
-}
-
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: 0.4s;
-    border-radius: 34px;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    border-radius: 50%;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: 0.4s;
-}
-
-input:checked + .slider {
-    background-color: #6c5ce7;
-}
-
-input:checked + .slider:before {
-    transform: translateX(26px);
+.pagamento input {
+    margin-left: 10px;
 }
