@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel do Logista</title>
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
 
@@ -16,6 +16,14 @@
         <div class="order-section">
             <h2>Pendentes</h2>
             <button onclick="openPopup()">Chamar Entregador</button>
+        </div>
+
+        <!-- Botões adicionais -->
+        <div class="action-buttons">
+            <button onclick="alert('Configurações')">Configurações</button>
+            <button onclick="alert('Ver Perfil')">Ver Perfil</button>
+            <button onclick="alert('Ver Relatórios')">Ver Relatórios</button>
+            <button onclick="alert('Saindo')">Sair</button>
         </div>
 
         <!-- Popup -->
@@ -73,6 +81,6 @@
         </div>
     </div>
 
-    <script src="js/dashboard.js"></script>
+    <script src="dashboard.js"></script>
 </body>
 </html>
