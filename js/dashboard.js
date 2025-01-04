@@ -1,22 +1,43 @@
-function chamarEntregador() {
-    document.getElementById("popup").style.display = "flex";
+function openPopup(tipo) {
+    const popup = document.getElementById('popup');
+    const popupTitle = document.getElementById('popup-title');
+    const trocoContainer = document.getElementById('troco-container');
+
+    popup.style.display = 'flex';
+
+    if (tipo === 'chamar') {
+        popupTitle.textContent = 'Chamar Entregador';
+    } else if (tipo === 'configuracoes') {
+        popupTitle.textContent = 'Configurações';
+    } else if (tipo === 'perfil') {
+        popupTitle.textContent = 'Ver Perfil';
+    } else if (tipo === 'relatorios') {
+        popupTitle.textContent = 'Ver Relatórios';
+    }
 }
 
-// Quando o botão de pagamento "Dinheiro" for selecionado
-const dinheiroRadio = document.getElementById("dinheiro");
-const campoTroco = document.getElementById("campoTroco");
+function fecharPopup() {
+    document.getElementById('popup').style.display = 'none';
+}
 
-dinheiroRadio.addEventListener("change", function() {
-    if (dinheiroRadio.checked) {
-        campoTroco.style.display = "block";
+document.getElementById('popup-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    alert("Pedido enviado!");
+    fecharPopup();
+});
+
+document.getElementById('pagamento').addEventListener('change', function () {
+    const pagamento = this.value;
+    const trocoContainer = document.getElementById('troco-container');
+
+    if (pagamento === 'dinheiro') {
+        trocoContainer.style.display = 'block';
     } else {
-        campoTroco.style.display = "none";
+        trocoContainer.style.display = 'none';
     }
 });
 
-// Fechar popup
-document.getElementById("popup").addEventListener("click", function(event) {
-    if (event.target === this) {
-        this.style.display = "none";
-    }
-});
+function sair() {
+    alert("Saindo...");
+    // Aqui você pode implementar a lógica para sair ou redirecionar para a página de login.
+}
