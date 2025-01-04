@@ -3,62 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel do Lojista</title>
-    <link rel="stylesheet" href="css/dashboard.css">
+    <title>Painel do Logista</title>
+    <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
-    <header>
-        <h1>Painel do Lojista</h1>
-    </header>
 
-    <main>
-        <button id="chamar-entregador-btn">Chamar Entregador</button>
-        <button id="configuracoes-btn">Configurações</button>
-        <button id="perfil-btn">Ver Perfil</button>
-        <button id="relatorios-btn">Ver Relatórios</button>
-    </main>
+    <div class="header">
+        <h1>Painel do Logista</h1>
+    </div>
 
-    <!-- Popup -->
-    <div id="popup">
-        <div class="popup-content">
-            <span id="close-popup">&times;</span>
-            <h2>Chamar Entregador</h2>
-            <form>
-                <label for="nome-cliente">Nome do Cliente *</label>
-                <input type="text" id="nome-cliente" required>
+    <div class="container">
+        <div class="order-section">
+            <h2>Pendentes</h2>
+            <button onclick="openPopup()">Chamar Entregador</button>
+        </div>
 
-                <label for="telefone-cliente">Número de Telefone *</label>
-                <input type="tel" id="telefone-cliente" required>
+        <!-- Popup -->
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span class="close-btn" onclick="closePopup()">&times;</span>
+                <h2>Detalhes do Pedido</h2>
+                
+                <label for="client-name">Nome do Cliente:</label>
+                <input type="text" id="client-name" placeholder="Nome do Cliente" required>
 
-                <label for="bairro-cliente">Bairro *</label>
-                <input type="text" id="bairro-cliente" required>
+                <label for="client-phone">Número de Telefone:</label>
+                <input type="tel" id="client-phone" placeholder="Número de Telefone" required>
 
-                <label for="rua-cliente">Rua *</label>
-                <input type="text" id="rua-cliente" required>
+                <label for="client-contact">Contato:</label>
+                <input type="text" id="client-contact" placeholder="Contato" required>
 
-                <label for="numero-casa">Número da Casa</label>
-                <input type="text" id="numero-casa">
+                <label for="client-neighborhood">Bairro:</label>
+                <input type="text" id="client-neighborhood" placeholder="Bairro" required>
 
-                <label for="link-localizacao">Link da Localização</label>
-                <input type="url" id="link-localizacao">
+                <label for="client-street">Rua:</label>
+                <input type="text" id="client-street" placeholder="Rua" required>
 
-                <div class="pagamento-opcoes">
-                    <label><input type="checkbox" id="pix"> Pix</label>
-                    <label><input type="checkbox" id="cartao"> Cartão</label>
-                    <label><input type="checkbox" id="dinheiro"> Dinheiro</label>
-                    <label><input type="checkbox" id="pago"> Pago</label>
+                <label for="client-house-number">Número da Casa:</label>
+                <input type="text" id="client-house-number" placeholder="Número da Casa">
+
+                <label for="client-location">Link da Localização:</label>
+                <input type="text" id="client-location" placeholder="Link da Localização">
+
+                <div class="payment-method">
+                    <label>Forma de Pagamento:</label>
+                    <div class="payment-options">
+                        <input type="checkbox" id="pix" onclick="togglePaymentFields()"> Pix
+                        <input type="checkbox" id="card" onclick="togglePaymentFields()"> Cartão
+                        <input type="checkbox" id="cash" onclick="togglePaymentFields()"> Dinheiro
+                        <input type="checkbox" id="paid" onclick="togglePaymentFields()"> Pago
+                    </div>
+
+                    <div id="cash-field" class="hidden">
+                        <label for="change-amount">Valor do Troco:</label>
+                        <input type="number" id="change-amount" placeholder="Valor do Troco">
+                    </div>
+
+                    <div id="payment-amount-fields" class="hidden">
+                        <label for="payment-value">Valor do Pagamento:</label>
+                        <input type="number" id="payment-value" placeholder="Valor do Pagamento">
+                    </div>
                 </div>
 
-                <div id="troco-container">
-                    <label for="troco">Valor do Troco</label>
-                    <input type="number" id="troco">
-                </div>
+                <label for="observation">Observação:</label>
+                <textarea id="observation" rows="4" placeholder="Observação"></textarea>
 
-                <button type="button" id="confirmar-pedido">Confirmar Pedido</button>
-            </form>
+                <button onclick="submitOrder()">Enviar Pedido</button>
+            </div>
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="dashboard.js"></script>
 </body>
 </html>
