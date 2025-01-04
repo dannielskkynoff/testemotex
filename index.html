@@ -3,90 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel do Lojista</title>
+    <title>Painel do Logista</title>
     <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
-    <header class="header">
-        <h1>Painel do Lojista</h1>
-    </header>
-
-    <nav class="nav-buttons">
-        <button class="btn-primary" onclick="abrirPopup()">Chamar Entregador</button>
-        <button class="btn-secondary" onclick="abrirConfiguracoes()">Configurações</button>
-        <button class="btn-secondary" onclick="abrirPerfil()">Ver Perfil</button>
-        <button class="btn-secondary" onclick="abrirRelatorios()">Ver Relatórios</button>
-    </nav>
-
-    <main class="order-sections">
-        <section class="order-section pendentes">
-            <h2>Pedidos Pendentes</h2>
-        </section>
-
-        <section class="order-section aceitos">
-            <h2>Pedidos Aceitos</h2>
-        </section>
-
-        <section class="order-section entregues">
-            <h2>Pedidos Entregues</h2>
-        </section>
-    </main>
+    <div class="header">
+        Painel do Logista
+    </div>
+    <div class="nav-buttons">
+        <button class="btn-primary" id="chamar-entregador-btn">Chamar Entregador</button>
+        <button class="btn-secondary">Configurações</button>
+        <button class="btn-secondary">Ver Perfil</button>
+        <button class="btn-secondary">Ver Relatórios</button>
+    </div>
+    <div class="order-sections">
+        <div class="order-section">
+            <h2>Pendentes</h2>
+            <p>Sem pedidos no momento.</p>
+        </div>
+        <div class="order-section">
+            <h2>Aceitos</h2>
+            <p>Sem pedidos no momento.</p>
+        </div>
+        <div class="order-section">
+            <h2>Entregues</h2>
+            <p>Sem pedidos no momento.</p>
+        </div>
+    </div>
 
     <!-- Popup -->
     <div class="popup" id="popup">
         <div class="popup-content">
-            <span class="close-btn" onclick="fecharPopup()">&times;</span>
-            <h2>Chamar Entregador</h2>
-            <form id="entregadorForm" onsubmit="enviarDados(event)">
-                <!-- Campos do formulário -->
-                <div class="form-group">
-                    <label for="cliente">Nome do Cliente *</label>
-                    <input type="text" id="cliente" name="cliente" required>
-                </div>
-                <div class="form-group">
-                    <label for="telefone">Número de Telefone *</label>
-                    <input type="tel" id="telefone" name="telefone" required>
-                </div>
-                <div class="form-group">
-                    <label for="bairro">Bairro *</label>
-                    <input type="text" id="bairro" name="bairro" required>
-                </div>
-                <div class="form-group">
-                    <label for="rua">Rua *</label>
-                    <input type="text" id="rua" name="rua" required>
-                </div>
-                <div class="form-group">
-                    <label for="numero">Número da Casa</label>
-                    <input type="text" id="numero" name="numero">
-                </div>
-                <div class="form-group">
-                    <label for="localizacao">Link da Localização</label>
-                    <input type="url" id="localizacao" name="localizacao">
-                </div>
-
-                <!-- Formas de Pagamento -->
-                <h3>Forma de Pagamento</h3>
-                <div class="payment-options">
-                    <label>
-                        <input type="checkbox" name="pagamento" value="pix"> Pix
-                    </label>
-                    <label>
-                        <input type="checkbox" name="pagamento" value="cartao"> Cartão
-                    </label>
-                    <label>
-                        <input type="checkbox" name="pagamento" value="dinheiro" onclick="toggleTroco(this)"> Dinheiro
-                    </label>
-                    <label>
-                        <input type="checkbox" name="pagamento" value="pago"> Pago
-                    </label>
-                </div>
-                <div class="form-group troco" id="trocoGroup" style="display: none;">
-                    <label for="troco">Troco para (R$)</label>
-                    <input type="number" id="troco" name="troco" min="0">
-                </div>
-
-                <button type="submit" class="confirm-btn">Confirmar</button>
-            </form>
+            <span class="close-btn" id="close-popup">&times;</span>
+            <h2>Preencha os dados do pedido</h2>
+            <div class="form-group">
+                <label for="nome-cliente">Nome do Cliente</label>
+                <input type="text" id="nome-cliente" placeholder="Ex: João da Silva" required>
+            </div>
+            <div class="form-group">
+                <label for="telefone-cliente">Número de Telefone</label>
+                <input type="tel" id="telefone-cliente" placeholder="Ex: (11) 98765-4321" required>
+            </div>
+            <div class="form-group">
+                <label for="bairro-cliente">Bairro</label>
+                <input type="text" id="bairro-cliente" placeholder="Ex: Centro" required>
+            </div>
+            <div class="form-group">
+                <label for="rua-cliente">Rua</label>
+                <input type="text" id="rua-cliente" placeholder="Ex: Rua das Flores" required>
+            </div>
+            <div class="form-group">
+                <label for="numero-casa">Número da Casa</label>
+                <input type="text" id="numero-casa" placeholder="Ex: 123">
+            </div>
+            <div class="form-group">
+                <label for="link-localizacao">Link da Localização</label>
+                <input type="url" id="link-localizacao" placeholder="Cole aqui o link do Google Maps">
+            </div>
+            <div class="payment-options">
+                <label>
+                    <input type="checkbox" id="pix"> Pix
+                </label>
+                <label>
+                    <input type="checkbox" id="cartao"> Cartão
+                </label>
+                <label>
+                    <input type="checkbox" id="dinheiro"> Dinheiro
+                </label>
+                <label>
+                    <input type="checkbox" id="pago"> Pago
+                </label>
+            </div>
+            <div class="troco" id="troco-container">
+                <label for="troco">Valor do Troco</label>
+                <input type="number" id="troco" placeholder="Ex: 10.00">
+            </div>
+            <button class="confirm-btn" id="confirmar-pedido">Confirmar Pedido</button>
         </div>
     </div>
 
