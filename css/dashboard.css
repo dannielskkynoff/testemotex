@@ -7,55 +7,55 @@ body {
 .header {
     background-color: #6c5ce7;
     color: white;
-    padding: 15px;
+    padding: 20px;
     text-align: center;
-    animation: color-change 5s infinite;
+    animation: color-change 5s infinite alternate;
+}
+
+.header h1 {
+    margin: 0;
 }
 
 @keyframes color-change {
     0% { background-color: #6c5ce7; }
     50% { background-color: #9b59b6; }
-    100% { background-color: #6c5ce7; }
+    100% { background-color: #8e44ad; }
 }
 
-.container {
+.buttons {
+    margin: 20px;
     display: flex;
     justify-content: space-around;
-    margin-top: 20px;
 }
 
-.section {
-    width: 30%;
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.section h2 {
-    text-align: center;
-    color: #6c5ce7;
-}
-
-.order {
-    margin-bottom: 15px;
-}
-
-button {
+.btn {
     background-color: #6c5ce7;
     color: white;
     border: none;
     padding: 10px;
-    width: 100%;
     border-radius: 5px;
     cursor: pointer;
+    width: 150px;
 }
 
-button:hover {
+.btn:hover {
     background-color: #5e54d8;
 }
 
-/* Popup */
+.order-container {
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.order {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%;
+}
+
 .popup {
     display: none;
     position: fixed;
@@ -66,59 +66,45 @@ button:hover {
     background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
-    animation: fadeIn 0.5s ease-in;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    z-index: 10;
 }
 
 .popup-content {
-    background-color: white;
+    background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    width: 80%;
-    max-width: 500px;
+    width: 500px;
+    max-height: 80vh;
     overflow-y: auto;
 }
 
-.popup-content input, .popup-content textarea {
+.popup-content h2 {
+    margin-top: 0;
+}
+
+.popup-content form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.popup-content form input, .popup-content form select, .popup-content form textarea {
     width: 100%;
-    padding: 10px;
-    margin: 5px 0;
+    padding: 8px;
+    margin-bottom: 10px;
     border-radius: 5px;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
 }
 
-.payment-options {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-}
-
-.payment-options label {
-    margin-right: 10px;
-}
-
-.campo-troco {
-    display: none;
-    margin-bottom: 15px;
-}
-
-textarea {
-    height: 100px;
-}
-
-button[type="submit"] {
+.popup-content form button {
     background-color: #6c5ce7;
     color: white;
     border: none;
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
+    width: 100%;
 }
 
-button[type="submit"]:hover {
+.popup-content form button:hover {
     background-color: #5e54d8;
 }
