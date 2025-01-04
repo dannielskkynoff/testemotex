@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Lojista - Gestão de Entregas</title>
+    <link rel="stylesheet" href="./css/dashboard.css"> <!-- Atualizando o caminho para o arquivo CSS -->
+</head>
+<body>
+
+    <div class="header">
+        Painel de Controle - Lojista
+    </div>
+
+    <div class="dashboard">
+        <div class="card">
+            <h3>10</h3>
+            <p>Pendentes</p>
+        </div>
+        <div class="card">
+            <h3>5</h3>
+            <p>Aceitos</p>
+        </div>
+        <div class="card">
+            <h3>15</h3>
+            <p>Entregues</p>
+        </div>
+    </div>
+
+    <button class="btn-chamar-entregador" onclick="chamarEntregador()">Chamar Entregador</button>
+
+    <script>
+        function chamarEntregador() {
+            alert("Entregador chamado com sucesso!");
+            // Aqui você pode adicionar a lógica para enviar a notificação ou atualizações no status.
+        }
+    </script>
+
+</body>
+</html>
