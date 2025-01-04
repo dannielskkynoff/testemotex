@@ -94,6 +94,10 @@
         // Limpar a mensagem de erro
         errorMessageElement.textContent = "";
 
+        // Adicionar log para verificar se o e-mail e a senha estão corretos
+        console.log("E-mail: ", email);
+        console.log("Senha: ", password);
+
         // Tentar logar
         auth.signInWithEmailAndPassword(email, password)
             .then((userCredential) => {
