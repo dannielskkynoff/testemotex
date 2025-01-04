@@ -3,38 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel do Lojista - Gestão de Entregas</title>
-    <link rel="stylesheet" href="./css/dashboard.css"> <!-- Atualizando o caminho para o arquivo CSS -->
+    <title>Painel do Lojista</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+    <header class="header">
+        <h1>Painel do Lojista</h1>
+    </header>
 
-    <div class="header">
-        Painel de Controle - Lojista
+    <nav class="nav-buttons">
+        <button onclick="abrirPopup()">Chamar Entregador</button>
+        <button onclick="abrirConfiguracoes()">Configurações</button>
+        <button onclick="abrirPerfil()">Ver Perfil</button>
+        <button onclick="abrirRelatorios()">Ver Relatórios</button>
+    </nav>
+
+    <main class="order-sections">
+        <section class="order-section pendentes">
+            <h2>Pedidos Pendentes</h2>
+            <!-- Exemplo de pedido pendente -->
+            <div class="order">
+                <p><strong>Cliente:</strong> João Silva</p>
+                <p><strong>Endereço:</strong> Rua das Flores, 123</p>
+                <p><strong>Status:</strong> Pendente</p>
+            </div>
+        </section>
+
+        <section class="order-section aceitos">
+            <h2>Pedidos Aceitos</h2>
+            <!-- Lista de pedidos aceitos -->
+        </section>
+
+        <section class="order-section entregues">
+            <h2>Pedidos Entregues</h2>
+            <!-- Lista de pedidos entregues -->
+        </section>
+    </main>
+
+    <!-- Popup oculto -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="fecharPopup()">&times;</span>
+            <h2>Chamar Entregador</h2>
+            <p>Deseja chamar um entregador para este pedido?</p>
+            <button class="confirm-btn" onclick="confirmarChamada()">Confirmar</button>
+        </div>
     </div>
 
-    <div class="dashboard">
-        <div class="card">
-            <h3>10</h3>
-            <p>Pendentes</p>
-        </div>
-        <div class="card">
-            <h3>5</h3>
-            <p>Aceitos</p>
-        </div>
-        <div class="card">
-            <h3>15</h3>
-            <p>Entregues</p>
-        </div>
-    </div>
-
-    <button class="btn-chamar-entregador" onclick="chamarEntregador()">Chamar Entregador</button>
-
-    <script>
-        function chamarEntregador() {
-            alert("Entregador chamado com sucesso!");
-            // Aqui você pode adicionar a lógica para enviar a notificação ou atualizações no status.
-        }
-    </script>
-
+    <script src="../js/script.js"></script>
 </body>
 </html>
