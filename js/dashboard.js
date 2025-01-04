@@ -1,43 +1,26 @@
-function openPopup(tipo) {
-    const popup = document.getElementById('popup');
-    const popupTitle = document.getElementById('popup-title');
-    const trocoContainer = document.getElementById('troco-container');
-
-    popup.style.display = 'flex';
-
-    if (tipo === 'chamar') {
-        popupTitle.textContent = 'Chamar Entregador';
-    } else if (tipo === 'configuracoes') {
-        popupTitle.textContent = 'Configurações';
-    } else if (tipo === 'perfil') {
-        popupTitle.textContent = 'Ver Perfil';
-    } else if (tipo === 'relatorios') {
-        popupTitle.textContent = 'Ver Relatórios';
-    }
+function chamarEntregador() {
+    document.getElementById('popup').style.display = 'block';
 }
 
 function fecharPopup() {
     document.getElementById('popup').style.display = 'none';
 }
 
-document.getElementById('popup-form').addEventListener('submit', function (event) {
-    event.preventDefault();
-    alert("Pedido enviado!");
+function logout() {
+    // Adicione sua lógica de logout aqui
+    alert('Logout realizado');
+    window.location.href = "index.html"; // redireciona para a tela de login
+}
+
+function mostrarTroco() {
+    const dinheiroCheckbox = document.getElementById('dinheiro');
+    const trocoContainer = document.getElementById('trocoContainer');
+    trocoContainer.style.display = dinheiroCheckbox.checked ? 'block' : 'none';
+}
+
+// Lógica para enviar o formulário do pedido (caso necessário)
+document.getElementById('chamarForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Pedido enviado!');
     fecharPopup();
 });
-
-document.getElementById('pagamento').addEventListener('change', function () {
-    const pagamento = this.value;
-    const trocoContainer = document.getElementById('troco-container');
-
-    if (pagamento === 'dinheiro') {
-        trocoContainer.style.display = 'block';
-    } else {
-        trocoContainer.style.display = 'none';
-    }
-});
-
-function sair() {
-    alert("Saindo...");
-    // Aqui você pode implementar a lógica para sair ou redirecionar para a página de login.
-}
