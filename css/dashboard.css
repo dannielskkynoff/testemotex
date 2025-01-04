@@ -1,9 +1,11 @@
+/* Estilo Geral */
 body {
     font-family: Arial, sans-serif;
     background-color: #f3f4f6;
     margin: 0;
 }
 
+/* Header */
 .header {
     background-color: #6c5ce7;
     color: white;
@@ -17,6 +19,25 @@ body {
     margin-top: 20px;
 }
 
+/* Seções de Pedidos */
+.section {
+    width: 30%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+h2 {
+    color: #6c5ce7;
+}
+
+.orders {
+    margin-top: 20px;
+}
+
+/* Botões */
 .action-button {
     background-color: #6c5ce7;
     color: white;
@@ -25,32 +46,37 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .action-button:hover {
     background-color: #5e54d8;
 }
 
-.popup {
-    display: none;
+/* Tela Lateral */
+.side-panel {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
+    right: 0;
+    width: 400px;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
     z-index: 1000;
+    overflow-y: auto;
 }
 
-.popup-content {
+.side-panel-content {
     background-color: white;
-    margin: 50px auto;
     padding: 20px;
-    width: 80%;
+    width: 100%;
     max-width: 400px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: relative;
+    height: 100%;
+    box-sizing: border-box;
+    overflow-y: auto;
 }
 
 .close-btn {
