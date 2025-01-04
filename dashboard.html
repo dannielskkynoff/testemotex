@@ -4,63 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel de Logista</title>
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js"></script>
+    <script src="firebaseConfig.js" defer></script>
 </head>
 <body>
+
     <div class="header">
-        <h1>Painel do Logista</h1>
+        <h1>Painel de Logista</h1>
     </div>
 
-    <div class="buttons">
-        <button class="btn" onclick="openPopup('chamar')">Chamar Entregador</button>
-        <button class="btn" onclick="openPopup('configuracoes')">Configurações</button>
-        <button class="btn" onclick="openPopup('perfil')">Ver Perfil</button>
-        <button class="btn" onclick="openPopup('relatorios')">Ver Relatórios</button>
-        <button class="btn" onclick="sair()">Sair</button>
+    <div class="container">
+        <button class="action-button" onclick="chamarEntregador()">Chamar Entregador</button>
+        <button class="action-button" onclick="verPerfil()">Ver Perfil</button>
+        <button class="action-button" onclick="verRelatorios()">Ver Relatórios</button>
+        <button class="action-button" onclick="logout()">Sair</button>
     </div>
 
-    <div class="order-container">
-        <div class="order">
-            <h3>Pendentes</h3>
-            <button onclick="aceitarPedido()">Aceitar Pedido</button>
-        </div>
-        <div class="order">
-            <h3>Aceitos</h3>
-            <button onclick="aceitarPedido()">Aceitar Pedido</button>
-        </div>
-        <div class="order">
-            <h3>Entregues</h3>
-            <button onclick="aceitarPedido()">Aceitar Pedido</button>
-        </div>
-    </div>
-
-    <!-- Popup para Configurações -->
-    <div id="config-popup" class="popup">
+    <!-- Popup Chamando Entregador -->
+    <div class="popup" id="popup">
         <div class="popup-content">
-            <h2>Configurações</h2>
-            <div class="switch-container">
-                <label for="theme-switch" class="switch-label">Mudar Tema:</label>
-                <label class="switch">
-                    <input type="checkbox" id="theme-switch">
-                    <span class="slider"></span>
-                </label>
-            </div>
-            <button onclick="fecharPopup()">Fechar</button>
-        </div>
-    </div>
-
-    <!-- Popup para outros botões -->
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <h2 id="popup-title">Chamar Entregador</h2>
-            <form id="popup-form">
-                <!-- Formulário -->
-                <!-- (mesmo formulário de antes) -->
+            <span class="close-btn" onclick="fecharPopup()">×</span>
+            <h2>Chamar Entregador</h2>
+            <form id="chamarForm">
+                <input type="text" id="nomeCliente" placeholder="Nome do Cliente" required>
+                <input type="text" id="telefone" placeholder="Telefone" required>
+                <input type="text" id="contato" placeholder="Contato" required>
+                <input type="text" id="bairro" placeholder="Bairro" required>
+                <input type="text" id="rua" placeholder="Rua" required>
+                <input type="text" id="numeroCasa" placeholder="Número da Casa">
+                <input type="text" id="linkLocalizacao" placeholder="Link de Localização">
+                <div class="pagamento">
+                    <label for="pix">Pix</label>
+                    <input type="checkbox" id="pix">
+                    <label for="cartao">Cartão</label>
+                    <input type="checkbox" id="cartao">
+                    <label for="dinheiro">Dinheiro</label>
+                    <input type="checkbox" id="dinheiro" onclick="mostrarTroco()">
+                    <label for="pago">Pago</label>
+                    <input type="checkbox" id="pago">
+                </div>
+                <div id="trocoContainer" style="display: none;">
+                    <label for="troco">Valor do Troco:</label>
+                    <input type="number" id="troco" placeholder="R$" min="0">
+                </div>
+                <textarea id="observacao" placeholder="Observação" rows="4"></textarea>
+                <button type="submit">Enviar Pedido</button>
             </form>
-            <button onclick="fecharPopup()">Fechar</button>
         </div>
     </div>
 
-    <script src="js/dashboard.js"></script>
+    <script src="scripts/dashboard.js"></script>
 </body>
 </html>
