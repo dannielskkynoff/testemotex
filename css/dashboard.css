@@ -37,6 +37,18 @@ button:hover {
     background-color: #5e54d8;
 }
 
+.action-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.action-buttons button {
+    width: 48%;
+    margin-bottom: 10px;
+}
+
 .popup {
     position: fixed;
     top: 0;
@@ -118,4 +130,8 @@ textarea {
 
 .close-btn:hover {
     color: #8e44ad;
+}
+
+#popup {
+    display: none;
 }
