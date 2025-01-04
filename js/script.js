@@ -22,13 +22,7 @@ function toggleTroco(checkbox) {
 
 // Enviar dados do formulário
 function enviarDados(event) {
-    event.preventDefault(); // Impede o recarregamento da página
-    const form = document.getElementById('entregadorForm');
-    const formData = new FormData(form);
-
-    // Exibe os dados no console (você pode enviar para o backend aqui)
-    console.log(Object.fromEntries(formData.entries()));
-
+    event.preventDefault();
     alert('Dados enviados com sucesso!');
     fecharPopup();
 }
