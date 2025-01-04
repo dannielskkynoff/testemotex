@@ -1,28 +1,12 @@
-// Abrir o popup
-function abrirPopup() {
-    const popup = document.getElementById('popup');
-    popup.style.display = 'flex'; // Torna o popup visível
-}
+document.getElementById("chamar-entregador-btn").addEventListener("click", function () {
+    document.getElementById("popup").style.display = "flex";
+});
 
-// Fechar o popup
-function fecharPopup() {
-    const popup = document.getElementById('popup');
-    popup.style.display = 'none'; // Esconde o popup
-}
+document.getElementById("close-popup").addEventListener("click", function () {
+    document.getElementById("popup").style.display = "none";
+});
 
-// Mostrar/ocultar campo de troco
-function toggleTroco(checkbox) {
-    const trocoGroup = document.getElementById('trocoGroup');
-    if (checkbox.checked && checkbox.value === 'dinheiro') {
-        trocoGroup.style.display = 'block';
-    } else {
-        trocoGroup.style.display = 'none';
-    }
-}
-
-// Enviar dados do formulário
-function enviarDados(event) {
-    event.preventDefault();
-    alert('Dados enviados com sucesso!');
-    fecharPopup();
-}
+document.getElementById("dinheiro").addEventListener("change", function () {
+    const trocoContainer = document.getElementById("troco-container");
+    trocoContainer.style.display = this.checked ? "block" : "none";
+});
