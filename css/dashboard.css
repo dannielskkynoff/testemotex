@@ -1,4 +1,119 @@
-/* Estilos gerais mantidos */
+/* Estilos Gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f4f6;
+    color: #333;
+}
+
+.header {
+    background-color: #6c5ce7;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Navegação */
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.nav-buttons button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav-buttons .btn-primary {
+    background-color: #6c5ce7;
+    color: white;
+}
+
+.nav-buttons .btn-primary:hover {
+    background-color: #5e54d8;
+}
+
+.nav-buttons .btn-secondary {
+    background-color: #ddd;
+    color: #333;
+}
+
+.nav-buttons .btn-secondary:hover {
+    background-color: #bbb;
+}
+
+/* Seções de Pedidos */
+.order-sections {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.order-section {
+    width: 30%;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.order-section h2 {
+    text-align: center;
+    color: #6c5ce7;
+    margin-bottom: 15px;
+}
+
+/* Popup */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: popupAnimation 0.3s ease-out;
+}
+
+@keyframes popupAnimation {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+}
 
 .form-group {
     margin-bottom: 15px;
@@ -25,21 +140,10 @@ input {
     margin: 15px 0;
 }
 
-.payment-options label {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+.payment-options input {
+    width: 18px;
+    height: 18px;
     cursor: pointer;
-}
-
-.payment-options input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-}
-
-.troco {
-    margin-top: 15px;
 }
 
 .confirm-btn {
@@ -52,7 +156,6 @@ input {
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 .confirm-btn:hover {
