@@ -3,96 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel do Logista</title>
+    <title>Painel de Logista</title>
     <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
+    <div class="header">
+        <h1>Painel do Logista</h1>
+    </div>
 
-<div class="header">
-    <h1>Painel do Logista</h1>
-</div>
+    <div class="buttons">
+        <button class="btn" onclick="openPopup('chamar')">Chamar Entregador</button>
+        <button class="btn" onclick="openPopup('configuracoes')">Configurações</button>
+        <button class="btn" onclick="openPopup('perfil')">Ver Perfil</button>
+        <button class="btn" onclick="openPopup('relatorios')">Ver Relatórios</button>
+        <button class="btn" onclick="sair()">Sair</button>
+    </div>
 
-<div class="container">
-    <!-- Seção Pendentes -->
-    <div class="section" id="pendentes">
-        <h2>Pendentes</h2>
+    <div class="order-container">
         <div class="order">
-            <p><strong>Cliente:</strong> João Silva</p>
-            <p><strong>Endereço:</strong> Rua das Flores, 123</p>
-            <button onclick="chamarEntregador()">Chamar Entregador</button>
+            <h3>Pendentes</h3>
+            <button onclick="aceitarPedido()">Aceitar Pedido</button>
+        </div>
+        <div class="order">
+            <h3>Aceitos</h3>
+            <button onclick="aceitarPedido()">Aceitar Pedido</button>
+        </div>
+        <div class="order">
+            <h3>Entregues</h3>
+            <button onclick="aceitarPedido()">Aceitar Pedido</button>
         </div>
     </div>
 
-    <!-- Seção Aceitos -->
-    <div class="section" id="aceitos">
-        <h2>Aceitos</h2>
-        <div class="order">
-            <p><strong>Cliente:</strong> Maria Oliveira</p>
-            <p><strong>Endereço:</strong> Avenida Central, 456</p>
-            <button onclick="chamarEntregador()">Chamar Entregador</button>
+    <!-- Popup -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h2 id="popup-title">Chamar Entregador</h2>
+            <form id="popup-form">
+                <label for="nome-cliente">Nome do Cliente:</label>
+                <input type="text" id="nome-cliente" required>
+                <label for="telefone-cliente">Número de Telefone:</label>
+                <input type="tel" id="telefone-cliente" required>
+                <label for="contato-cliente">Contato:</label>
+                <input type="text" id="contato-cliente" required>
+                <label for="bairro">Bairro:</label>
+                <input type="text" id="bairro" required>
+                <label for="rua">Rua:</label>
+                <input type="text" id="rua" required>
+                <label for="numero-casa">Número da Casa:</label>
+                <input type="text" id="numero-casa">
+                <label for="localizacao">Link da Localização:</label>
+                <input type="url" id="localizacao">
+                <label for="pagamento">Forma de Pagamento:</label>
+                <select id="pagamento">
+                    <option value="pix">PIX</option>
+                    <option value="cartao">Cartão</option>
+                    <option value="dinheiro">Dinheiro</option>
+                    <option value="pago">Pago</option>
+                </select>
+                <div id="troco-container" style="display:none;">
+                    <label for="troco">Valor do Troco:</label>
+                    <input type="number" id="troco" min="0">
+                </div>
+                <label for="observacao">Observação:</label>
+                <textarea id="observacao"></textarea>
+                <button type="submit">Confirmar</button>
+            </form>
+            <button onclick="fecharPopup()">Fechar</button>
         </div>
     </div>
 
-    <!-- Seção Entregues -->
-    <div class="section" id="entregues">
-        <h2>Entregues</h2>
-        <div class="order">
-            <p><strong>Cliente:</strong> Carlos Souza</p>
-            <p><strong>Endereço:</strong> Rua dos Ipês, 789</p>
-        </div>
-    </div>
-</div>
-
-<!-- Popup -->
-<div id="popup" class="popup">
-    <div class="popup-content">
-        <h3>Informações do Pedido</h3>
-        <form id="form-popup">
-            <label for="nome">Nome do Cliente:</label>
-            <input type="text" id="nome" required>
-
-            <label for="telefone">Número de Telefone:</label>
-            <input type="tel" id="telefone" required>
-
-            <label for="bairro">Bairro:</label>
-            <input type="text" id="bairro" required>
-
-            <label for="rua">Rua:</label>
-            <input type="text" id="rua" required>
-
-            <label for="numeroCasa">Número da Casa:</label>
-            <input type="text" id="numeroCasa">
-
-            <label for="linkLocalizacao">Link da Localização:</label>
-            <input type="url" id="linkLocalizacao">
-
-            <div class="payment-options">
-                <label for="pix">Pix</label>
-                <input type="radio" id="pix" name="pagamento" value="pix">
-                
-                <label for="cartao">Cartão</label>
-                <input type="radio" id="cartao" name="pagamento" value="cartao">
-                
-                <label for="dinheiro">Dinheiro</label>
-                <input type="radio" id="dinheiro" name="pagamento" value="dinheiro">
-
-                <label for="pagamento">Pago</label>
-                <input type="radio" id="pago" name="pagamento" value="pago">
-            </div>
-
-            <div id="campoTroco" class="campo-troco">
-                <label for="troco">Valor do Troco:</label>
-                <input type="number" id="troco" placeholder="Informe o valor do troco">
-            </div>
-
-            <label for="observacao">Observações:</label>
-            <textarea id="observacao"></textarea>
-
-            <button type="submit">Confirmar Pedido</button>
-        </form>
-    </div>
-</div>
-
-<script src="js/dashboard.js"></script>
+    <script src="js/dashboard.js"></script>
 </body>
 </html>
