@@ -3,23 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Gestão de Entregas</title>
-    <link rel="stylesheet" href="css/login.css">
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-box {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .login-box h2 {
+            text-align: center;
+            color: #6c5ce7;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-box button {
+            width: 100%;
+            padding: 10px;
+            background-color: #6c5ce7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-box button:hover {
+            background-color: #5e54d8;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
-    <div class="login-container">
-        <h2>Bem-vindo ao Painel de Logista</h2>
-        <form id="loginForm">
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="password" id="password" placeholder="Senha" required>
-            <button type="submit">Entrar</button>
-            <p>Não tem uma conta? <a href="#">Cadastre-se</a></p>
-        </form>
+<div class="container">
+    <div class="login-box">
+        <h2>Login</h2>
+        <input type="email" id="email" placeholder="Digite seu email" required>
+        <input type="password" id="password" placeholder="Digite sua senha" required>
+        <button onclick="login()">Entrar</button>
+        <div id="error-message" class="error-message"></div>
     </div>
+</div>
 
-    <script src="js/login.js"></script>
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+
+<script>
+    // Configuração do Firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyCjDxtzK9ELCyxLNgmd0ZYDhB1o-bPLWr8",
+        authDomain: "nuxpro-gestao-de-entregas.firebaseapp.com",
+        projectId: "nuxpro-gestao-de-entregas",
+        storageBucket: "nuxpro-gestao-de-entregas.firebasestorage.app",
+        messagingSenderId: "483551326765",
+        appId: "1:483551326765:web:e77ef1e29d69f58efa7ea4",
+        measurementId: "G-FVR4EXZR93"
+    };
+
+    // Inicialize o Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    // Função de login
+    function login() {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const errorMessageElement = document.getElementById("error-message");
+
+        // Limpar a mensagem de erro
+        errorMessageElement.textContent = "";
+
+        // Tentar logar
+        auth.signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                // Login bem-sucedido, redirecionar para o painel
+                window.location.href = "dashboard.html"; // Substitua pelo seu painel
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.error(errorCode, errorMessage);
+
+                // Exibir a mensagem de erro
+                errorMessageElement.textContent = "Erro ao fazer login: " + errorMessage;
+            });
+    }
+</script>
+
 </body>
 </html>
