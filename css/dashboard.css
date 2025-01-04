@@ -1,25 +1,44 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     background-color: #f3f4f6;
+    margin: 0;
 }
 
 .header {
-    background: linear-gradient(45deg, #6c5ce7, #8e44ad);
+    background-color: #6c5ce7;
     color: white;
-    padding: 20px;
+    padding: 15px;
     text-align: center;
-    font-size: 24px;
-    font-weight: bold;
+    animation: color-change 5s infinite;
+}
+
+@keyframes color-change {
+    0% { background-color: #6c5ce7; }
+    50% { background-color: #9b59b6; }
+    100% { background-color: #6c5ce7; }
 }
 
 .container {
-    margin: 20px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
 }
 
-.order-section {
-    margin-bottom: 20px;
+.section {
+    width: 30%;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+    text-align: center;
+    color: #6c5ce7;
+}
+
+.order {
+    margin-bottom: 15px;
 }
 
 button {
@@ -30,108 +49,76 @@ button {
     width: 100%;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
 }
 
 button:hover {
     background-color: #5e54d8;
 }
 
-.action-buttons {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.action-buttons button {
-    width: 48%;
-    margin-bottom: 10px;
-}
-
+/* Popup */
 .popup {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .popup-content {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
-    width: 50%;
-    max-height: 80%;
+    width: 80%;
+    max-width: 500px;
     overflow-y: auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transform: scale(0.9);
-    transition: transform 0.3s ease;
 }
 
-.popup-content h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-input[type="text"], input[type="tel"], input[type="number"], textarea {
+.popup-content input, .popup-content textarea {
     width: 100%;
     padding: 10px;
-    margin: 10px 0;
+    margin: 5px 0;
     border-radius: 5px;
     border: 1px solid #ddd;
-}
-
-.payment-method {
-    margin-top: 20px;
 }
 
 .payment-options {
-    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
 }
 
-.hidden {
+.payment-options label {
+    margin-right: 10px;
+}
+
+.campo-troco {
     display: none;
-}
-
-.payment-method label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 textarea {
-    width: 100%;
+    height: 100px;
+}
+
+button[type="submit"] {
+    background-color: #6c5ce7;
+    color: white;
+    border: none;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #ddd;
-    resize: none;
-    margin-bottom: 20px;
-}
-
-#change-amount {
-    width: 50%;
-    padding: 10px;
-    margin: 10px 0;
-}
-
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: #6c5ce7;
-    font-size: 30px;
     cursor: pointer;
 }
 
-.close-btn:hover {
-    color: #8e44ad;
-}
-
-#popup {
-    display: none;
+button[type="submit"]:hover {
+    background-color: #5e54d8;
 }
