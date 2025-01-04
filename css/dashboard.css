@@ -1,104 +1,121 @@
-/* Estilo Global */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f3f4f6;
     margin: 0;
     padding: 0;
+    background-color: #f3f4f6;
 }
 
-/* Cabeçalho */
-header {
-    background: linear-gradient(90deg, #6c5ce7, #8e44ad, #6c5ce7);
-    background-size: 300% 300%;
-    animation: gradient-animation 5s infinite;
+.header {
+    background: linear-gradient(45deg, #6c5ce7, #8e44ad);
     color: white;
     padding: 20px;
     text-align: center;
+    font-size: 24px;
+    font-weight: bold;
 }
 
-header h1 {
-    margin: 0;
-}
-
-/* Botões principais */
-main {
-    text-align: center;
+.container {
     margin: 20px;
 }
 
-main button {
+.order-section {
+    margin-bottom: 20px;
+}
+
+button {
     background-color: #6c5ce7;
     color: white;
     border: none;
-    padding: 15px;
-    margin: 10px;
+    padding: 10px;
+    width: 100%;
     border-radius: 5px;
     cursor: pointer;
-    transition: 0.3s;
+    font-size: 16px;
 }
 
-main button:hover {
+button:hover {
     background-color: #5e54d8;
 }
 
-/* Popup */
-#popup {
-    display: none;
+.popup {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
     justify-content: center;
     align-items: center;
 }
 
 .popup-content {
-    background: white;
+    background-color: white;
     padding: 20px;
     border-radius: 8px;
-    width: 400px;
-    max-width: 90%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    text-align: left;
-    position: relative;
+    width: 50%;
+    max-height: 80%;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
 }
 
 .popup-content h2 {
-    margin-top: 0;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-#close-popup {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-form input {
+input[type="text"], input[type="tel"], input[type="number"], textarea {
     width: 100%;
     padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
+    margin: 10px 0;
     border-radius: 5px;
+    border: 1px solid #ddd;
 }
 
-.pagamento-opcoes {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
+.payment-method {
+    margin-top: 20px;
 }
 
-#troco-container {
+.payment-options {
+    margin-bottom: 10px;
+}
+
+.hidden {
     display: none;
 }
 
-/* Animação do cabeçalho */
-@keyframes gradient-animation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+.payment-method label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    resize: none;
+    margin-bottom: 20px;
+}
+
+#change-amount {
+    width: 50%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #6c5ce7;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #8e44ad;
 }
