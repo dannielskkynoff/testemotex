@@ -58,20 +58,38 @@
                 <input type="text" id="rua" placeholder="Rua" required>
                 <input type="text" id="numeroCasa" placeholder="Número da Casa">
                 <input type="text" id="linkLocalizacao" placeholder="Link de Localização">
+
+                <!-- Adicionando as mudanças no formulário de pagamento -->
                 <div class="pagamento">
-                    <label for="pix">Pix</label>
-                    <input type="checkbox" id="pix">
-                    <label for="cartao">Cartão</label>
-                    <input type="checkbox" id="cartao">
-                    <label for="dinheiro">Dinheiro</label>
-                    <input type="checkbox" id="dinheiro" onclick="mostrarTroco()">
-                    <label for="pago">Pago</label>
-                    <input type="checkbox" id="pago">
+                    <h3>Forma de Pagamento:</h3>
+                    <div>
+                        <input type="radio" id="pix" name="pagamento" onchange="mostrarCampoPagamento('pix')">
+                        <label for="pix">Pix</label>
+                    </div>
+                    <div id="pixValorContainer" style="display: none;">
+                        <label for="pixValor">Valor (R$):</label>
+                        <input type="number" id="pixValor" placeholder="Informe o valor" min="0">
+                    </div>
+
+                    <div>
+                        <input type="radio" id="cartao" name="pagamento" onchange="mostrarCampoPagamento('cartao')">
+                        <label for="cartao">Cartão</label>
+                    </div>
+                    <div id="cartaoValorContainer" style="display: none;">
+                        <label for="cartaoValor">Valor (R$):</label>
+                        <input type="number" id="cartaoValor" placeholder="Informe o valor" min="0">
+                    </div>
+
+                    <div>
+                        <input type="radio" id="dinheiro" name="pagamento" onchange="mostrarCampoPagamento('dinheiro')">
+                        <label for="dinheiro">Dinheiro</label>
+                    </div>
+                    <div id="trocoContainer" style="display: none;">
+                        <label for="troco">Valor do Troco (R$):</label>
+                        <input type="number" id="troco" placeholder="Troco para quanto?" min="0">
+                    </div>
                 </div>
-                <div id="trocoContainer" style="display: none;">
-                    <label for="troco">Valor do Troco:</label>
-                    <input type="number" id="troco" placeholder="R$" min="0">
-                </div>
+
                 <textarea id="observacao" placeholder="Observação" rows="4"></textarea>
                 <button type="submit">Enviar Pedido</button>
             </form>
@@ -79,5 +97,22 @@
     </div>
 
     <script src="js/dashboard.js"></script>
+    <script>
+        function mostrarCampoPagamento(metodo) {
+            // Esconder todos os campos inicialmente
+            document.getElementById('pixValorContainer').style.display = 'none';
+            document.getElementById('cartaoValorContainer').style.display = 'none';
+            document.getElementById('trocoContainer').style.display = 'none';
+
+            // Mostrar o campo correspondente ao método de pagamento selecionado
+            if (metodo === 'pix') {
+                document.getElementById('pixValorContainer').style.display = 'block';
+            } else if (metodo === 'cartao') {
+                document.getElementById('cartaoValorContainer').style.display = 'block';
+            } else if (metodo === 'dinheiro') {
+                document.getElementById('trocoContainer').style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>
