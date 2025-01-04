@@ -1,15 +1,15 @@
-function chamarEntregador() {
-    document.getElementById('popup').style.display = 'block';
+function abrirTelaLateral() {
+    document.getElementById('sidePanel').style.display = 'block';
 }
 
-function fecharPopup() {
-    document.getElementById('popup').style.display = 'none';
+function fecharTelaLateral() {
+    document.getElementById('sidePanel').style.display = 'none';
 }
 
 function logout() {
-    // Adicione sua lógica de logout aqui
+    // Lógica de logout
     alert('Logout realizado');
-    window.location.href = "index.html"; // redireciona para a tela de login
+    window.location.href = "index.html"; // Redireciona para o login
 }
 
 function mostrarTroco() {
@@ -22,5 +22,5 @@ function mostrarTroco() {
 document.getElementById('chamarForm').addEventListener('submit', function(e) {
     e.preventDefault();
     alert('Pedido enviado!');
-    fecharPopup();
+    fecharTelaLateral();
 });
