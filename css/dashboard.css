@@ -114,6 +114,25 @@ textarea {
     resize: none;
 }
 
-.pagamento input {
-    margin-left: 10px;
+/* Estilos para a seção de Pagamento */
+.pagamento {
+    margin-top: 20px;
+}
+
+.pagamento div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.pagamento input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Campos Dinâmicos */
+#pixValorContainer, 
+#cartaoValorContainer, 
+#trocoContainer {
+    margin-left: 20px;
+    margin-top: 10px;
 }
