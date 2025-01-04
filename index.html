@@ -8,79 +8,91 @@
 </head>
 <body>
 
-    <div class="header">
-        <h1>Painel do Logista</h1>
+<div class="header">
+    <h1>Painel do Logista</h1>
+</div>
+
+<div class="container">
+    <!-- Seção Pendentes -->
+    <div class="section" id="pendentes">
+        <h2>Pendentes</h2>
+        <div class="order">
+            <p><strong>Cliente:</strong> João Silva</p>
+            <p><strong>Endereço:</strong> Rua das Flores, 123</p>
+            <button onclick="chamarEntregador()">Chamar Entregador</button>
+        </div>
     </div>
 
-    <div class="container">
-        <div class="order-section">
-            <h2>Pendentes</h2>
-            <button onclick="openPopup()">Chamar Entregador</button>
+    <!-- Seção Aceitos -->
+    <div class="section" id="aceitos">
+        <h2>Aceitos</h2>
+        <div class="order">
+            <p><strong>Cliente:</strong> Maria Oliveira</p>
+            <p><strong>Endereço:</strong> Avenida Central, 456</p>
+            <button onclick="chamarEntregador()">Chamar Entregador</button>
         </div>
+    </div>
 
-        <!-- Botões adicionais -->
-        <div class="action-buttons">
-            <button onclick="alert('Configurações')">Configurações</button>
-            <button onclick="alert('Ver Perfil')">Ver Perfil</button>
-            <button onclick="alert('Ver Relatórios')">Ver Relatórios</button>
-            <button onclick="alert('Saindo')">Sair</button>
+    <!-- Seção Entregues -->
+    <div class="section" id="entregues">
+        <h2>Entregues</h2>
+        <div class="order">
+            <p><strong>Cliente:</strong> Carlos Souza</p>
+            <p><strong>Endereço:</strong> Rua dos Ipês, 789</p>
         </div>
+    </div>
+</div>
 
-        <!-- Popup -->
-        <div id="popup" class="popup">
-            <div class="popup-content">
-                <span class="close-btn" onclick="closePopup()">&times;</span>
-                <h2>Detalhes do Pedido</h2>
+<!-- Popup -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <h3>Informações do Pedido</h3>
+        <form id="form-popup">
+            <label for="nome">Nome do Cliente:</label>
+            <input type="text" id="nome" required>
+
+            <label for="telefone">Número de Telefone:</label>
+            <input type="tel" id="telefone" required>
+
+            <label for="bairro">Bairro:</label>
+            <input type="text" id="bairro" required>
+
+            <label for="rua">Rua:</label>
+            <input type="text" id="rua" required>
+
+            <label for="numeroCasa">Número da Casa:</label>
+            <input type="text" id="numeroCasa">
+
+            <label for="linkLocalizacao">Link da Localização:</label>
+            <input type="url" id="linkLocalizacao">
+
+            <div class="payment-options">
+                <label for="pix">Pix</label>
+                <input type="radio" id="pix" name="pagamento" value="pix">
                 
-                <label for="client-name">Nome do Cliente:</label>
-                <input type="text" id="client-name" placeholder="Nome do Cliente" required>
+                <label for="cartao">Cartão</label>
+                <input type="radio" id="cartao" name="pagamento" value="cartao">
+                
+                <label for="dinheiro">Dinheiro</label>
+                <input type="radio" id="dinheiro" name="pagamento" value="dinheiro">
 
-                <label for="client-phone">Número de Telefone:</label>
-                <input type="tel" id="client-phone" placeholder="Número de Telefone" required>
-
-                <label for="client-contact">Contato:</label>
-                <input type="text" id="client-contact" placeholder="Contato" required>
-
-                <label for="client-neighborhood">Bairro:</label>
-                <input type="text" id="client-neighborhood" placeholder="Bairro" required>
-
-                <label for="client-street">Rua:</label>
-                <input type="text" id="client-street" placeholder="Rua" required>
-
-                <label for="client-house-number">Número da Casa:</label>
-                <input type="text" id="client-house-number" placeholder="Número da Casa">
-
-                <label for="client-location">Link da Localização:</label>
-                <input type="text" id="client-location" placeholder="Link da Localização">
-
-                <div class="payment-method">
-                    <label>Forma de Pagamento:</label>
-                    <div class="payment-options">
-                        <input type="checkbox" id="pix" onclick="togglePaymentFields()"> Pix
-                        <input type="checkbox" id="card" onclick="togglePaymentFields()"> Cartão
-                        <input type="checkbox" id="cash" onclick="togglePaymentFields()"> Dinheiro
-                        <input type="checkbox" id="paid" onclick="togglePaymentFields()"> Pago
-                    </div>
-
-                    <div id="cash-field" class="hidden">
-                        <label for="change-amount">Valor do Troco:</label>
-                        <input type="number" id="change-amount" placeholder="Valor do Troco">
-                    </div>
-
-                    <div id="payment-amount-fields" class="hidden">
-                        <label for="payment-value">Valor do Pagamento:</label>
-                        <input type="number" id="payment-value" placeholder="Valor do Pagamento">
-                    </div>
-                </div>
-
-                <label for="observation">Observação:</label>
-                <textarea id="observation" rows="4" placeholder="Observação"></textarea>
-
-                <button onclick="submitOrder()">Enviar Pedido</button>
+                <label for="pagamento">Pago</label>
+                <input type="radio" id="pago" name="pagamento" value="pago">
             </div>
-        </div>
-    </div>
 
-    <script src="js/dashboard.js"></script>
+            <div id="campoTroco" class="campo-troco">
+                <label for="troco">Valor do Troco:</label>
+                <input type="number" id="troco" placeholder="Informe o valor do troco">
+            </div>
+
+            <label for="observacao">Observações:</label>
+            <textarea id="observacao"></textarea>
+
+            <button type="submit">Confirmar Pedido</button>
+        </form>
+    </div>
+</div>
+
+<script src="js/dashboard.js"></script>
 </body>
 </html>
