@@ -21,32 +21,72 @@
     <main class="order-sections">
         <section class="order-section pendentes">
             <h2>Pedidos Pendentes</h2>
-            <!-- Exemplo de pedido pendente -->
-            <div class="order">
-                <p><strong>Cliente:</strong> João Silva</p>
-                <p><strong>Endereço:</strong> Rua das Flores, 123</p>
-                <p><strong>Status:</strong> Pendente</p>
-            </div>
         </section>
 
         <section class="order-section aceitos">
             <h2>Pedidos Aceitos</h2>
-            <!-- Lista de pedidos aceitos -->
         </section>
 
         <section class="order-section entregues">
             <h2>Pedidos Entregues</h2>
-            <!-- Lista de pedidos entregues -->
         </section>
     </main>
 
-    <!-- Popup oculto -->
+    <!-- Popup -->
     <div class="popup" id="popup">
         <div class="popup-content">
             <span class="close-btn" onclick="fecharPopup()">&times;</span>
             <h2>Chamar Entregador</h2>
-            <p>Deseja chamar um entregador para este pedido?</p>
-            <button class="confirm-btn" onclick="confirmarChamada()">Confirmar</button>
+            <form id="entregadorForm" onsubmit="enviarDados(event)">
+                <!-- Campos do formulário -->
+                <div class="form-group">
+                    <label for="cliente">Nome do Cliente *</label>
+                    <input type="text" id="cliente" name="cliente" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Número de Telefone *</label>
+                    <input type="tel" id="telefone" name="telefone" required>
+                </div>
+                <div class="form-group">
+                    <label for="bairro">Bairro *</label>
+                    <input type="text" id="bairro" name="bairro" required>
+                </div>
+                <div class="form-group">
+                    <label for="rua">Rua *</label>
+                    <input type="text" id="rua" name="rua" required>
+                </div>
+                <div class="form-group">
+                    <label for="numero">Número da Casa</label>
+                    <input type="text" id="numero" name="numero">
+                </div>
+                <div class="form-group">
+                    <label for="localizacao">Link da Localização</label>
+                    <input type="url" id="localizacao" name="localizacao">
+                </div>
+
+                <!-- Formas de Pagamento -->
+                <h3>Forma de Pagamento</h3>
+                <div class="payment-options">
+                    <label>
+                        <input type="checkbox" name="pagamento" value="pix"> Pix
+                    </label>
+                    <label>
+                        <input type="checkbox" name="pagamento" value="cartao"> Cartão
+                    </label>
+                    <label>
+                        <input type="checkbox" name="pagamento" value="dinheiro" onclick="toggleTroco(this)"> Dinheiro
+                    </label>
+                    <label>
+                        <input type="checkbox" name="pagamento" value="pago"> Pago
+                    </label>
+                </div>
+                <div class="form-group troco" id="trocoGroup" style="display: none;">
+                    <label for="troco">Troco para (R$)</label>
+                    <input type="number" id="troco" name="troco" min="0">
+                </div>
+
+                <button type="submit" class="confirm-btn">Confirmar</button>
+            </form>
         </div>
     </div>
 
