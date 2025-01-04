@@ -4,12 +4,13 @@ import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/fir
 
 // Configuração do Firebase (modifique com suas credenciais)
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyCjDxtzK9ELCyxLNgmd0ZYDhB1o-bPLWr8",
+  authDomain: "nuxpro-gestao-de-entregas.firebaseapp.com",
+  projectId: "nuxpro-gestao-de-entregas",
+  storageBucket: "nuxpro-gestao-de-entregas.firebasestorage.app",
+  messagingSenderId: "483551326765",
+  appId: "1:483551326765:web:e77ef1e29d69f58efa7ea4",
+  measurementId: "G-FVR4EXZR93"
 };
 
 // Inicializar o Firebase
@@ -28,7 +29,7 @@ form.addEventListener('submit', function(event) {
         .then((userCredential) => {
             const user = userCredential.user;
             console.log('Usuário logado:', user);
-            window.location.href = 'index.html';  // Redireciona para o painel após login bem-sucedido
+            window.location.href = 'dashboard.html';  // Redireciona para o painel após login bem-sucedido
         })
         .catch((error) => {
             const errorCode = error.code;
